@@ -19,14 +19,16 @@ require(['dojox/cometd', 'dojo/dom', 'dojo/domReady!'], function(cometd, dom)
 
     dom.byId('pub').onclick = function()
     {
-        cometd.publish('/service/feed/1', { messageContent: 'Hola!', channel:'/feed/1' });
+        cometd.publish('/service/feed/1', { messageContent: 'Hola!', channel:'/feed/1', sendTime: new Date().getTime()});
     };
 
     dom.byId('sub').onclick = function()
         {
           cometd.subscribe('/feed/1', function(message)
           {
-              dom.byId('status').innerHTML += '<div>'+message.data.messageContent+'</div>';
+              //var timeTaken = new Date().getTime();
+              var timeTaken = new Date().getTime() - message.data.sendTime
+              dom.byId('status').innerHTML += '<div>'+message.data.messageContent+' took '+ timeTaken + ' ms </div>';
           });
     };
 
