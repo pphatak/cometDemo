@@ -19,7 +19,7 @@ require(['dojox/cometd', 'dojo/dom', 'dojo/domReady!'], function(cometd, dom)
 
     dom.byId('pub').onclick = function()
     {
-        cometd.publish('/service/feed/1', { messageContent: 'Hola!', channel:'/feed/1', sendTime: new Date().getTime()});
+        cometd.publish('/feed/1', { messageContent: 'Hello - This is a big long test message! How long would this take ?', channel:'/feed/1', sendTime: new Date().getTime()});
     };
 
     dom.byId('sub').onclick = function()
