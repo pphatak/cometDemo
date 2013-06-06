@@ -10,14 +10,6 @@ require(['dojox/cometd', 'dojo/dom', 'dojo/domReady!'], function(cometd, dom)
         if (message.successful)
         {
             dom.byId('status').innerHTML += '<div>CometD handshake successful</div>';
-            cometd.subscribe('/echo/1', function(message)
-                          {
-                           dom.byId('body').innerHTML += '<div> Received sub </div>';
-                         });
-            cometd.subscribe('/feed/1', function(message)
-                                                   {
-                                                    dom.byId('body').innerHTML += '<div> Received sub </div>';
-                                                  });
         }
         else
         {
@@ -28,15 +20,14 @@ require(['dojox/cometd', 'dojo/dom', 'dojo/domReady!'], function(cometd, dom)
     dom.byId('pub').onclick = function()
     {
         cometd.publish('/service/feed/1', { messageContent: 'Hola!', channel:'/feed/1' });
-        cometd.publish('/service/echo', { messageContent: 'Echoo Hola!', channel:'/echo/1' });
     };
 
     dom.byId('sub').onclick = function()
         {
-             cometd.subscribe('/feed/1', function(message)
-              {
-               dom.byId('body').innerHTML += '<div> Received sub </div>';
-             });
+          cometd.subscribe('/feed/1', function(message)
+          {
+              dom.byId('body').innerHTML += '<div> Received sub </div>';
+          });
     };
 
     cometd.handshake();
