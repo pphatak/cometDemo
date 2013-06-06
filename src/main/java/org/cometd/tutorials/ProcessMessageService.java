@@ -30,6 +30,6 @@ public class ProcessMessageService extends AbstractService {
 
         // Publish to all subscribers
         ServerChannel channel = getBayeux().getChannel(channelName);
-        channel.publish(getLocalSession(), message, null);
+        channel.publish(getLocalSession(), data, null);
     }
 }

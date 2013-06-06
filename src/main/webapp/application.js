@@ -26,7 +26,7 @@ require(['dojox/cometd', 'dojo/dom', 'dojo/domReady!'], function(cometd, dom)
         {
           cometd.subscribe('/feed/1', function(message)
           {
-              dom.byId('body').innerHTML += '<div> Received sub </div>';
+              dom.byId('status').innerHTML += '<div>'+message.data.messageContent+'</div>';
           });
     };
 
