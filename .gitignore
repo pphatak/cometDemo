@@ -1,0 +1,16 @@
+choosie-stage.yml
+logs
+.classpath
+*.class
+.project
+.DS_Store
+*.iml
+*.ipr
+*.iws
+target
+replica
+indices
+/tmp
+.idea
+choosie.yml
+.settings
