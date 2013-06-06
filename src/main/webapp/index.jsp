@@ -25,9 +25,5 @@
         Publish
     </button>
 
-    <button id="sub">
-       Subscribe
-    </button>
-
 </body>
 </html>
