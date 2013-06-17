@@ -19,11 +19,13 @@
 
     <h2>CometD Tutorial</h2>
 
-    <div id="status"></div>
-
     <button id="pub">
-        Publish
+        Publish Messages
     </button>
+    <input type="text" id="txt" />
+    <button id="stop"> Stop Publish </button>
+
+    <div id="status"></div>
 
 </body>
 </html>

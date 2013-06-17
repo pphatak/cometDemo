@@ -7,6 +7,7 @@ To run:
 1. cd cometDemo
 2. mvn install jetty:run
 3. Open localhost:8080 and hit publish ... you should see the message at the server and on the browser
+* This currently publishes to stagehammer-002, to publish to the local server change it to localhost in application.js
 
 Message fields :
 messageContent - content of the message being delivered (try to keep this the size of p95 online now length)

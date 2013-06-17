@@ -14,3 +14,4 @@ indices
 .idea
 choosie.yml
 .settings
+*.war

@@ -17,7 +17,7 @@ public class ProcessMessageService extends AbstractService {
     }
 
     public void processMessage(ServerSession remote, ServerMessage message) {
-        System.out.println("Received message on channel :" + message.getChannel());
+        System.out.println("Received data :"+message.getDataAsMap());
 
         // Initialize the channel, making it persistent and lazy
         getBayeux().createIfAbsent(message.getChannel(), new ConfigurableServerChannel.Initializer() {
@@ -34,7 +34,11 @@ public class ProcessMessageService extends AbstractService {
     public void processServiceMessage(ServerSession remote, ServerMessage message) {
         Map<String, Object> data = message.getDataAsMap();
         String channelName = (String) data.get("channel");
-        System.out.println("Received message on service channel :" + message.getChannel());
+        System.out.print("Received message :\t");
+        for(Map.Entry<String, Object> entry: data.entrySet()){
+            System.out.print(entry.getKey() + ":" + entry.getValue()+"\t");
+        }
+        System.out.println("");
 
         // Initialize the channel, making it persistent and lazy
         getBayeux().createIfAbsent(channelName, new ConfigurableServerChannel.Initializer() {
